@@ -1,0 +1,16 @@
+C:\BatchApkTool\ailocalizer_src_1.5\aiLocalization\obj\Debug\Artfulbits.Android.Localization.AddKeyDialog.resources
+C:\BatchApkTool\ailocalizer_src_1.5\aiLocalization\obj\Debug\Artfulbits.Android.Localization.CreateFolderDialog.resources
+C:\BatchApkTool\ailocalizer_src_1.5\aiLocalization\obj\Debug\Artfulbits.Android.Localization.EditValueForm.resources
+C:\BatchApkTool\ailocalizer_src_1.5\aiLocalization\obj\Debug\Artfulbits.Android.Localization.frmAbout.resources
+C:\BatchApkTool\ailocalizer_src_1.5\aiLocalization\obj\Debug\Artfulbits.Android.Localization.OptionsDialog.resources
+C:\BatchApkTool\ailocalizer_src_1.5\aiLocalization\obj\Debug\Artfulbits.Android.Localization.MainForm.resources
+C:\BatchApkTool\ailocalizer_src_1.5\aiLocalization\obj\Debug\Artfulbits.Android.Localization.Properties.Resources.resources
+C:\BatchApkTool\ailocalizer_src_1.5\aiLocalization\obj\Debug\aiLocalization.csproj.GenerateResource.cache
+C:\BatchApkTool\ailocalizer_src_1.5\aiLocalization\obj\Debug\aiLocalization.csproj.CoreCompileInputs.cache
+C:\BatchApkTool\ailocalizer_src_1.5\aiLocalization\obj\Debug\aiLocalization.csproj.CopyComplete
+C:\BatchApkTool\aiLocalization.exe.config
+C:\BatchApkTool\ailocalizer_src_1.5\aiLocalization\obj\Debug\aiLocalization.exe
+C:\BatchApkTool\ailocalizer_src_1.5\aiLocalization\obj\Debug\aiLocalization.pdb
+C:\BatchApkTool\aiLocalization.exe
+C:\BatchApkTool\aiLocalization.pdb
+C:\BatchApkTool\ailocalizer_src_1.5\aiLocalization\obj\Debug\aiLocalization.csprojAssemblyReference.cache
