@@ -86,6 +86,7 @@
             this.prgTranslation = new System.Windows.Forms.ToolStripProgressBar();
             this.btnTransCancel = new System.Windows.Forms.ToolStripStatusLabel();
             this.fileWatcher = new System.IO.FileSystemWatcher();
+            this.menuYandex = new System.Windows.Forms.ToolStripMenuItem();
             this.popupActions.SuspendLayout();
             this.stripActions.SuspendLayout();
             this.layoutMain.SuspendLayout();
@@ -138,10 +139,11 @@
             this.refrToolStripMenuItem,
             this.toolStripMenuItem4,
             this.optionsToolStripMenuItem,
-            this.aboutToolStripMenuItem});
+            this.aboutToolStripMenuItem,
+            this.menuYandex});
             this.popupActions.Name = "popupActions";
             this.popupActions.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
-            this.popupActions.Size = new System.Drawing.Size(234, 204);
+            this.popupActions.Size = new System.Drawing.Size(234, 248);
             this.popupActions.Opening += new System.ComponentModel.CancelEventHandler(this.popupActions_Opening);
             // 
             // editToolStripMenuItem
@@ -622,6 +624,13 @@
             this.fileWatcher.Deleted += new System.IO.FileSystemEventHandler(this.fileWatcher_Deleted);
             this.fileWatcher.Renamed += new System.IO.RenamedEventHandler(this.fileWatcher_Renamed);
             // 
+            // menuYandex
+            // 
+            this.menuYandex.CheckOnClick = true;
+            this.menuYandex.Name = "menuYandex";
+            this.menuYandex.Size = new System.Drawing.Size(233, 22);
+            this.menuYandex.Text = "Use yandex api for translate";
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -708,6 +717,7 @@
     private System.Windows.Forms.ToolStripStatusLabel btnTransCancel;
     private System.Windows.Forms.ToolStripButton stripOpenFolder;
     private System.IO.FileSystemWatcher fileWatcher;
-	}
+        private System.Windows.Forms.ToolStripMenuItem menuYandex;
+    }
 }
 
