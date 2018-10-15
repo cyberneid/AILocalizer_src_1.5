@@ -185,6 +185,13 @@ namespace Artfulbits.Android.Localization
                 comboResourceFile.Enabled = true;
             }
         }
+
+        private void setProgressVisible()
+        {
+            statusTranslate.Visible = false;
+            prgTranslation.Visible = false;
+            prgTranslation.Maximum = 100;
+        }
         /// <summary></summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -195,6 +202,8 @@ namespace Artfulbits.Android.Localization
             if (cb != null && !string.IsNullOrEmpty(cb.Text))
             {
                 LoadDocuments(cb.Text, m_originalValuesPath, m_valuesPath);
+                setProgressVisible();
+                Application.DoEvents();
             }
         }
         /// <summary></summary>
@@ -675,6 +684,7 @@ namespace Artfulbits.Android.Localization
 
             string pathOriginal = Path.Combine(original, file);
             string path = Path.Combine(folder, file);
+            string oldCaption = this.Text;
 
             if (File.Exists(path) && File.Exists(pathOriginal))
             {
@@ -694,10 +704,14 @@ namespace Artfulbits.Android.Localization
                 XmlNodeList listArray = xdoc.GetElementsByTagName(c_StringArrayTagName);
 
                 // Show their <string\> values
+                this.Text = "Please wait while loading files...";
                 AddOriginalItems(listOriginal);
+                setProgressVisible();
                 AddOriginalItems(listArrayOriginal);
+                setProgressVisible();
                 AddLocalItems(list);
                 AddLocalItems(listArray);
+                this.Text = oldCaption;
             }
 
             CreateEmptySubItems();
@@ -933,6 +947,11 @@ namespace Artfulbits.Android.Localization
         /// <param name="list">Local Items</param>
         private void AddLocalItems(XmlNodeList list)
         {
+            int count = 0;
+            statusTranslate.Visible = true;
+            prgTranslation.Visible = true;
+            prgTranslation.Maximum = list.Count;
+
             foreach (XmlNode node in list)
             {
                 string nodename = node.Attributes[c_NameAttribute].Value;
@@ -953,12 +972,19 @@ namespace Artfulbits.Android.Localization
                 {
                     AddSubItems(node, item);
                 }
+                count++;
+                prgTranslation.Value = count;
+                Application.DoEvents();
             }
         }
         /// <summary>Adds original items to the ListView.</summary>
         /// <param name="listOriginal">Original Items collection.</param>
         private void AddOriginalItems(XmlNodeList listOriginal)
         {
+            int count = 0;
+            statusTranslate.Visible = true;
+            prgTranslation.Visible = true;
+            prgTranslation.Maximum = listOriginal.Count;
             foreach (XmlNode node in listOriginal)
             {
                 string nodename = node.Attributes[c_NameAttribute].Value;
@@ -967,6 +993,9 @@ namespace Artfulbits.Android.Localization
                 item.Name = nodename;
 
                 AddSubItems(node, item);
+                count++;
+                prgTranslation.Value = count;
+                Application.DoEvents();
             }
         }
         /// <summary>Adds value as a sub item.</summary>

@@ -50,6 +50,7 @@
             this.toolStripMenuItem4 = new System.Windows.Forms.ToolStripSeparator();
             this.optionsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuYandex = new System.Windows.Forms.ToolStripMenuItem();
             this.imgStates = new System.Windows.Forms.ImageList(this.components);
             this.stripActions = new System.Windows.Forms.ToolStrip();
             this.btnSave = new System.Windows.Forms.ToolStripButton();
@@ -86,7 +87,6 @@
             this.prgTranslation = new System.Windows.Forms.ToolStripProgressBar();
             this.btnTransCancel = new System.Windows.Forms.ToolStripStatusLabel();
             this.fileWatcher = new System.IO.FileSystemWatcher();
-            this.menuYandex = new System.Windows.Forms.ToolStripMenuItem();
             this.popupActions.SuspendLayout();
             this.stripActions.SuspendLayout();
             this.layoutMain.SuspendLayout();
@@ -143,7 +143,7 @@
             this.menuYandex});
             this.popupActions.Name = "popupActions";
             this.popupActions.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
-            this.popupActions.Size = new System.Drawing.Size(234, 248);
+            this.popupActions.Size = new System.Drawing.Size(234, 226);
             this.popupActions.Opening += new System.ComponentModel.CancelEventHandler(this.popupActions_Opening);
             // 
             // editToolStripMenuItem
@@ -238,6 +238,13 @@
             this.aboutToolStripMenuItem.Size = new System.Drawing.Size(233, 22);
             this.aboutToolStripMenuItem.Text = "&About...";
             this.aboutToolStripMenuItem.Click += new System.EventHandler(this.aboutToolStripMenuItem_Click);
+            // 
+            // menuYandex
+            // 
+            this.menuYandex.CheckOnClick = true;
+            this.menuYandex.Name = "menuYandex";
+            this.menuYandex.Size = new System.Drawing.Size(233, 22);
+            this.menuYandex.Text = "Use yandex api for translate";
             // 
             // imgStates
             // 
@@ -623,13 +630,6 @@
             this.fileWatcher.Created += new System.IO.FileSystemEventHandler(this.fileWatcher_Created);
             this.fileWatcher.Deleted += new System.IO.FileSystemEventHandler(this.fileWatcher_Deleted);
             this.fileWatcher.Renamed += new System.IO.RenamedEventHandler(this.fileWatcher_Renamed);
-            // 
-            // menuYandex
-            // 
-            this.menuYandex.CheckOnClick = true;
-            this.menuYandex.Name = "menuYandex";
-            this.menuYandex.Size = new System.Drawing.Size(233, 22);
-            this.menuYandex.Text = "Use yandex api for translate";
             // 
             // MainForm
             // 
