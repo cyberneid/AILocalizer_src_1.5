@@ -41,6 +41,9 @@
   <PropertyGroup>
     <StartupObject>Artfulbits.Android.Localization.Program</StartupObject>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>action_sound_high.ico</ApplicationIcon>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
@@ -209,6 +212,9 @@
   <ItemGroup>
     <None Include="app.config" />
     <None Include="Resources\refresh16.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="action_sound_high.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
