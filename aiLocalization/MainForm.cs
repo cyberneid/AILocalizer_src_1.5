@@ -1274,7 +1274,7 @@ namespace Artfulbits.Android.Localization
             string texto = string.Empty;
             string lang = "en|" + languagePair + "";
             word = Uri.EscapeDataString(word);
-            string url = String.Format("http://translate.google.com.br/translate_t?hl=en&ie=UTF8&text={0}&langpair={1}", word, lang);
+            string url = String.Format("http://translate.google.com.br/translate_t?&ie=UTF8&text={0}&langpair={1}", word, lang);
 
             //Clipboard.SetText(url);
             WebClient webClient = new WebClient();

@@ -13,3 +13,4 @@ C:\BatchApkTool\AILocalizer_src_1.5\aiLocalization\obj\Debug\aiLocalization.exe
 C:\BatchApkTool\AILocalizer_src_1.5\aiLocalization\obj\Debug\aiLocalization.pdb
 C:\BatchApkTool\aiLocalization.exe
 C:\BatchApkTool\aiLocalization.pdb
+C:\BatchApkTool\AILocalizer_src_1.5\aiLocalization\obj\Debug\aiLocalization.csprojAssemblyReference.cache
