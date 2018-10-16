@@ -143,6 +143,7 @@ namespace Artfulbits.Android.Localization
                 }
 
                 ShowHideCombos();
+                comboResourceFolder.SelectedIndex = comboResourceFolder.Items.IndexOf("values-pt-rBR");
             }
         }
         /// <summary></summary>
@@ -778,7 +779,7 @@ namespace Artfulbits.Android.Localization
                 writer.Formatting = Formatting.Indented;
 
                 writer.WriteStartDocument();
-                writer.WriteComment(NormalizeComments(global::Artfulbits.Android.Localization.Properties.Settings.Default.Copyright));
+                //writer.WriteComment(NormalizeComments(global::Artfulbits.Android.Localization.Properties.Settings.Default.Copyright));
 
                 writer.WriteStartElement("resources");
                 writer.WriteAttributeString("xmlns:xliff", "urn:oasis:names:tc:xliff:document:1.2");
@@ -826,7 +827,7 @@ namespace Artfulbits.Android.Localization
 
                     foreach (ListViewItem sub in subnodes)
                     {
-                        writer.WriteComment(NormalizeComments("Original value: " + sub.SubItems[1].Text));
+                        //writer.WriteComment(NormalizeComments("Original value: " + sub.SubItems[1].Text));
 
                         writer.WriteStartElement("item");
                         writer.WriteValue(NormalizeText(sub.SubItems[2].Text));
@@ -837,7 +838,7 @@ namespace Artfulbits.Android.Localization
                 }
                 else
                 {
-                    writer.WriteComment(NormalizeComments("Original value: " + item.SubItems[1].Text));
+                    //writer.WriteComment(NormalizeComments("Original value: " + item.SubItems[1].Text));
 
                     writer.WriteStartElement(c_StringTagName);
                     writer.WriteAttributeString("name", item.Name);
@@ -1060,7 +1061,7 @@ namespace Artfulbits.Android.Localization
         /// <summary></summary>
         private void ConsumePath()
         {
-            ConsumePath(null);
+            ConsumePath("values-pt-rBR");
         }
         /// <summary>Consume resource folder.</summary>
         /// <param name="select">Item to select. Set null to select first item in list.</param>
