@@ -713,6 +713,8 @@ namespace Artfulbits.Android.Localization
                 AddLocalItems(list);
                 AddLocalItems(listArray);
                 this.Text = oldCaption;
+
+                
             }
 
             CreateEmptySubItems();
@@ -779,15 +781,16 @@ namespace Artfulbits.Android.Localization
                 writer.Formatting = Formatting.Indented;
 
                 writer.WriteStartDocument();
-                //writer.WriteComment(NormalizeComments(global::Artfulbits.Android.Localization.Properties.Settings.Default.Copyright));
+//                writer.WriteComment(NormalizeComments(global::Artfulbits.Android.Localization.Properties.Settings.Default.Copyright));
 
                 writer.WriteStartElement("resources");
-                writer.WriteAttributeString("xmlns:xliff", "urn:oasis:names:tc:xliff:document:1.2");
-                writer.WriteAttributeString("xmlns:android", "http://schemas.android.com/apk/res/android");
+//                writer.WriteAttributeString("xmlns:xliff", "urn:oasis:names:tc:xliff:document:1.2");
+ //               writer.WriteAttributeString("xmlns:android", "http://schemas.android.com/apk/res/android");
 
                 WriteNodes(writer, m_root);
 
                 writer.WriteEndElement();
+                writer.Close();
             }
         }
         /// <summary></summary>
@@ -818,34 +821,48 @@ namespace Artfulbits.Android.Localization
         {
             foreach (ListViewItem item in root)
             {
-                if (item.Tag != null && item.Tag is List<ListViewItem>) // foldering
+                var linha = string.Empty;
+                try
                 {
-                    List<ListViewItem> subnodes = (item.Tag as List<ListViewItem>);
-
-                    writer.WriteStartElement(c_StringArrayTagName);
-                    writer.WriteAttributeString("name", item.Name);
-
-                    foreach (ListViewItem sub in subnodes)
+                   
+                    if (item.Tag != null && item.Tag is List<ListViewItem>) // foldering
                     {
-                        //writer.WriteComment(NormalizeComments("Original value: " + sub.SubItems[1].Text));
+                        List<ListViewItem> subnodes = (item.Tag as List<ListViewItem>);
 
-                        writer.WriteStartElement("item");
-                        writer.WriteValue(NormalizeText(sub.SubItems[2].Text));
+                        writer.WriteStartElement(c_StringArrayTagName);
+                        writer.WriteAttributeString("name", item.Name);
+
+                        foreach (ListViewItem sub in subnodes)
+                        {
+                            linha = "  Original value: " + sub.SubItems[1].Text ;
+                            writer.WriteComment(linha );
+
+                            writer.WriteStartElement("item");
+                            writer.WriteValue(NormalizeText(sub.SubItems[2].Text));
+                            writer.WriteEndElement();
+                        }
+
+                        writer.WriteEndElement();
+                    }
+                    else
+                    {
+                        linha = "  Original value: " + item.SubItems[1].Text;
+                        //writer.WriteComment(NormalizeComments("Original value: " + item.SubItems[1].Text));
+                        writer.WriteComment(linha);
+                        writer.WriteStartElement(c_StringTagName);
+                        writer.WriteAttributeString("name", item.Name);
+                        writer.WriteValue(NormalizeText(item.SubItems[2].Text));
                         writer.WriteEndElement();
                     }
 
-                    writer.WriteEndElement();
                 }
-                else
+                catch (Exception ex)
                 {
-                    //writer.WriteComment(NormalizeComments("Original value: " + item.SubItems[1].Text));
-
-                    writer.WriteStartElement(c_StringTagName);
-                    writer.WriteAttributeString("name", item.Name);
-                    writer.WriteValue(NormalizeText(item.SubItems[2].Text));
-                    writer.WriteEndElement();
+                    MessageBox.Show("Erro WriteNodes \n\n" + ex.Message.ToString()   + "\n\n" + linha );
                 }
+
             }
+            writer.Close();
         }
         /// <summary>Remove "--" from comments. It's not allowed symbol for XML.</summary>
         /// <param name="text"></param>
@@ -869,7 +886,7 @@ namespace Artfulbits.Android.Localization
             {
                 for (int i = item.SubItems.Count; i < 3; i++)
                 {
-                    item.SubItems.Add(string.Empty);
+                    item.SubItems.Add(item.SubItems[1].Text);
                 }
 
                 if (item.Tag != null && item.Tag is List<ListViewItem>)
@@ -880,7 +897,7 @@ namespace Artfulbits.Android.Localization
                     {
                         for (int i = sub.SubItems.Count; i < 3; i++)
                         {
-                            sub.SubItems.Add(string.Empty);
+                            sub.SubItems.Add(subitems[1].Text);
                         }
                     }
                 }
@@ -965,8 +982,9 @@ namespace Artfulbits.Android.Localization
                 }
                 else if (!string.IsNullOrEmpty(nodename))
                 {
+                    
                     item = lvStrings.Items.Add(nodename);
-                    item.SubItems.Add(string.Empty); // add empty original
+                    item.SubItems.Add(node.Value); // add empty original
                 }
 
                 if (item != null)
